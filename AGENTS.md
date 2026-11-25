@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Classroom Mafia: game rules run in the host browser (`src/lib/game/`), messages travel over public Realtime Broadcast, and `public.rooms` only stores host backups — keeps students login-free and roles private (anon cannot read rooms; students call `room_exists` only).
+- UI talks to the backend only through `src/services/*`; the Cloud implementations live in `src/services/supabase/` — keeps the mock and Cloud backends swappable.
+- The root layout renders routes only after hydration — pages read device storage and open realtime channels during render.
+- Strict index/optional tsconfig flags are off — the imported game engine was written without them.
